@@ -21,7 +21,9 @@ The poll has the following options:
 
 Poll registrations and commission attendance are recorded.
 
-An attendance score is computed using an exponential moving average
+An attendance score is computed for each member.
+
+Exponential moving average weigh recent attendance more heavily.
 
 > :boom: how often?
 
