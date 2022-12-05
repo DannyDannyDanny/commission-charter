@@ -1,6 +1,14 @@
 # commission-charter
 The semi-official charter for Thursday commissions
 
+## Contibuting
+
+These need fixing:
+
+> :boom: `<some task>`
+
+Make a pull request :heart:
+
 
 ## Attendance Score
 
@@ -15,7 +23,7 @@ Poll registrations and commission attendance are recorded.
 
 An attendance score is computed using an exponential moving average
 
-> :question: how often?
+> :boom: how often?
 
 The score
 
@@ -31,11 +39,14 @@ Location should fulfill all **hard criteria**:
 
 If a location fulfills all hard criteria the location can be marked
 For each attendant, $c$, their:
-* $L_pre$, Pre-commission location (i.e. $c$'s work)
-* $L_commission$ - Comission location (is same for all attendees)
-* $L_post$ - Post-commission location (i.e. $c$'s home) L_post
+* $L_{pre}$, Pre-commission location (i.e. $c$'s work)
+* $L_{commission}$ - Comission location (is same for all attendees)
+* $L_{post}$ - Post-commission location (i.e. $c$'s home) L_post
 
-The distance for each attendants... something like:
+> :boom: the terms $L_{pre}$, $L_{commission}$, $L_{post}$ are a little sucky,
+> can we think of something better?
+
+The location score is computed by taking the sum of distances for all members:
 
 ```math
 \sum_{i=0}^{N} D_{L_{pre_{i}} \rightarrow L_{commission}} +  D_{L_{comission} \rightarrow L_{post_{i}}}
@@ -43,32 +54,32 @@ The distance for each attendants... something like:
 
 Where $D_{a \rightarrow b}$ is distance (as the crow flies) from $a$ to $b$[^1]
 
-Use distance as the crow flies (eventually, use Rejseplanen API).
-
 
 ### One-Dimensional Example
 Consider the __simple thursday commission universe__ (STCU) which:
 * consists of six locations on a straight line
-* contains three attendees
+* contains three commission members
 
-| Attendee | $L_pre$ | $L_post$ | $a$ |
-| -        | -       | -        | -   |
-| $c_1$    | 1       | 5        | .5  |
-| $c_2$    | 2       | 6        | .2  |
-| $c_3$    | 3       | 1        | .8  |
+| Member | $L_{pre}$ | $L_{post}$ | Attendance score $a$ |
+| -      | -         | -          | -                    |
+| $c_1$  | 1         | 5          | .5                   |
+| $c_2$  | 2         | 6          | .2                   |
+| $c_3$  | 3         | 1          | .8                   |
 
 Consider a bar located at $L_{commission} = 3$.
-The locations score of the bar is
+The locations score of the bar is...
+
+> :boom:
 
 
 ```math
-\sum_{i=0}^{N} D_{L_{pre_{i}} \rightarrow L_{commission}} +  D_{L_{comission} \rightarrow L_{post_{i}}}
+S = \sum_{i=0}^{N} D_{L_{pre_{i}} \rightarrow L_{commission}} +  D_{L_{comission} \rightarrow L_{post_{i}}}
 ```
 
 > :boom: align above maths equations?
 
 
-$$ \begin{aligned} 2x - 4 &= 6 \\ 2x &= 10 \\ x &= 5 \end{aligned} $$
+$$ \begin{align} 2x - 4 &= 6 \\ 2x &= 10 \\ x &= 5 \end{align} $$
 
 $$ \begin{align} 2x - 4 &= 6 \\ 2x &= 10 \\ x &= 5 \end{align} $$
 
